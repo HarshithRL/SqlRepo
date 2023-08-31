@@ -1,0 +1,98 @@
+--Q1
+
+--->Question 1
+
+--Connected with SQL server database engine using SSMS.
+
+-->list the Tables in Database
+
+SELECT TABLE_SCHEMA, TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE';
+
+-->TOP command using select statments
+>select top 10 * from [Person].[Password];
+
+-->Create a database with a name School
+
+Create Database School;
+
+-->Create a backup file of database
+
+BACKUP DATABASE School
+TO DISK = 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\School.bak'
+WITH INIT;
+
+
+-->use Drop statement to drop the database
+
+Drop database School;
+
+-->Restore the database from backup file in SQL Server
+
+RESTORE DATABASE School
+FROM DISK = 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\School.bak'
+WITH RECOVERY;
+
+
+-->Restore AdventureWork2019 Db from web source
+
+RESTORE DATABASE School
+FROM DISK = 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\ Adventureworks2019.bak'
+WITH RECOVERY;
+
+--->Question 2
+
+--SQL statement to create a simple table Locations including columns country_id, country_name and region_id.
+
+create table locations(
+    country_id INT PRIMARY KEY,
+    country_name VARCHAR(50),
+    region_id INT,
+);
+
+--SQL statement to rename the table Locations to Locations_new.
+EXEC sp_rename 'locations','Locations_new';
+
+
+--SQL statement to add a column region_name to the table locations
+ALTER TABLE Locations_new
+ADD region_name varchar(10);
+
+select * from Locations_new;
+
+--SQL statement to add a column ID as the first column of the table locations.
+
+-- Create the new table with the extra column
+CREATE TABLE NewTable (
+    ID int,country_id INT PRIMARY KEY,
+    country_name VARCHAR(50),
+    region_id INT,region_name varchar(20)
+);
+
+-- Copy data from the original table to the new table is the only way to add new column
+INSERT INTO NewTable (country_id,country_name,region_id,region_name)
+SELECT country_id,country_name,region_id,region_name
+FROM Locations_new;
+
+select * from NewTable;
+
+drop table Locations_new;
+
+EXEC sp_rename 'NewTable','Locations_new';
+
+--Write a SQL statement to add a column state_province after region_id to the table locations.
+
+CREATE TABLE NewTable (
+    ID int,country_id INT PRIMARY KEY,
+    country_name VARCHAR(50),
+    region_id INT,state_province varchar(20),region_name varchar(20)
+);
+
+INSERT INTO NewTable (country_id,country_name,region_id,region_name)
+SELECT country_id,country_name,region_id,region_name
+FROM Locations_new;
+
+drop table Locations_new;
+
+EXEC sp_rename 'NewTable','Locations_new';
