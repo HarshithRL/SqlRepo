@@ -63,3 +63,7 @@ Question-1
 • SQL query to display all records from Salesman table but commission column should be ascending order
 
 • SQL query to display all records except San Jose city
+
+• SQL query to display all records except San Jose city
+
+
