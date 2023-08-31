@@ -1,0 +1,70 @@
+--Q2
+
+--SQL query to create table
+
+Create table Agents(agent_code char(6) not null,
+					agent_name char(25),
+					working_area char(25));
+select * from Agents;
+
+
+--SQL query to create a table to achieve UNIQUE constraints
+
+Create table orders(ord_num decimal(6) not null unique,
+					ord_amount decimal(12,2),
+					ord_date date);
+alter table orders add
+				cust_code char(6),
+				agent_code char(6)
+select * from orders;
+
+
+--Write SQL Create Table to check UNIQUE values on more columns.
+
+Create table Agents1(agent_code char(6) not null unique ,
+					agent_name char(25) not null unique,
+					working_area char(25) not null,
+					commission decimal(5,2));
+
+
+--SQLCreate Table to check UNIQUE values
+
+Create table orders1(cust_code char(6) not null unique,
+					cust_name char(25) not null ,
+					cust_city char(25) not null,grade int,
+					agent_code char(6) not null unique);
+
+
+--SQL Create Table with Check constraint
+
+Create table Agents2(agent_code char(6) not null unique ,
+					agent_name char(25) not null unique,
+					working_area char(25) not null,
+					commission decimal(5,2) CONSTRAINT ptc check (commission>1));
+select * from Agents1;
+-- SQL Alter table with check constraint.
+ALTER TABLE Agents1
+ADD CONSTRAINT CHK_comission_ptc CHECK (commission < 1);
+
+
+--SQL Create table with check constraint and In operator
+
+Create table Agent3(working_area char(25),
+					commission int,
+					CONSTRAINT wk_check check (working_area in ('London','brisban','Chennai','mumbai')),
+					CONSTRAINT c_check check (commission >1));
+
+
+-- Create table with complex CHECK constraints using AND and OR
+
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    Commission DECIMAL(10, 2),
+    WorkingArea VARCHAR(50),
+    CONSTRAINT CHK_CommissionWorkingArea CHECK (
+        (Commission < 0.14 AND WorkingArea = 'London') OR
+        (Commission < 0.15 AND WorkingArea = 'Mumbai') OR
+		(Commission < 0.13 AND WorkingArea = 'New York')
+    )
+);
+drop table Employees;
