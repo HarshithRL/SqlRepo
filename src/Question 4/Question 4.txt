@@ -1,0 +1,52 @@
+--Q4:
+
+--Create a table Persons with column column names as Personid int primary key,Last Name varchar(23),First Name varchar(23),Age int
+create table Persons(Personid int IDENTITY(1,1) primary key,
+					 Last_Name varchar(23),
+					 First_Name varchar(23),
+					 Age int);
+--insert some data to Persons Table
+
+insert into Persons(Last_Name,First_Name,Age) values('R','Harshith',25),
+                                                    ('S','Rathnakar',30),
+													('thasheen','nihala',22);
+--Create a table Orders with column names as Order Id int primary key,Order Number int,Person Id int foreign key
+
+create table Orders(Order_Id int IDENTITY(1,1) primary key,
+					Order_Number int,
+					Person_Id int
+					CONSTRAINT FK_Salesman_Order FOREIGN KEY (Person_Id) REFERENCES Persons(Personid));
+--Insert some data
+
+insert into Orders values (420,1),
+						  (363,2),
+						  (333,3);
+select * from orders;
+
+--use [AdventureWorksDW2019]
+
+--select * from [AdventureWorksDW2019];
+/*
+SELECT TABLE_SCHEMA, TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE';
+*/
+--SQL query to sort the LastName as ascending order and show that LastName column as first column from DimCustomer table
+SELECT LastName,ProductKey,ProductAlternateKey,ProductSubcategoryKey,WeightUnitMeasureCode,Color,ThaiDescription,HebrewDescription
+from DimCustomer
+ORDER BY LastName ;
+
+--to list all the columns in table
+select COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where  TABLE_NAME='DimProduct';
+
+--SQL query to show top 20 Products from DimProduct Table
+
+select top 20 EnglishProductName
+from DimProduct;
+
+--SQL query to show 50 percentage of customers from DimCustomers table
+SELECT TOP 50 PERCENT *
+FROM DimCustomer;
+
+--SQL query to find Minimum and Maximum yearly income from DimCustomer Table.
+select min(YearlyIncome) As minimum,max(YearlyIncome) As maximum from DimCustomer;

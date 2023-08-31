@@ -1,0 +1,38 @@
+--Q5:
+
+--SQL query to Select distinct records of EmailAddress where the EmailAddress having a letters combination "vi" from DimEmployee table
+select EmailAddress
+from DimEmployee
+where EmailAddress like '%vi%';
+
+--SQL query to find english product name starts with 'b' and ends with 'e' in EnglishProductName column from DimProduct table
+select EnglishProductName
+from DimProduct
+where EnglishProductName like 'b%e'
+
+--SQL statement to selects all english product names have "r" in the second position from EnglishProductName column in DimProduct Table
+select EnglishProductName
+from DimProduct
+where EnglishProductName like '_r%'
+
+--SQL statement selects to select FirstName, DepartmentName, Title as specific columns and show who are working as 'Accountant' and 'Chief Financial Officer' from Title colum from DimEmployee table
+select * from DimEmployee;
+SELECT FirstName, DepartmentName, Title
+FROM DimEmployee
+WHERE Title IN ('Accountant', 'Chief Financial Officer');
+
+--SQL Aliase statement to show FirstName and LastName as Employee Full Name using hot coding from DimEmployee Table
+select CONCAT(FirstName ,' ', LastName) as fullName from DimEmployee;
+
+--SQL query to find minimum unit price from UnitPrice column in FactInternetSales table.
+select min(UnitPrice) as min_UnitPrice from FactInternetSales;
+
+--SQL query to find total sales amount from SalesAmount column in FactInternetSales table.
+select sum(SalesAmount) as total_amount from FactInternetSales;
+
+--SQL query to find average tax amount from Taxamt column in FactInternetSales table.
+select avg(Taxamt) as Avg_amount from FactInternetSales;
+
+--SQL query to show FirstName and Birthdate, the birth date range between 01-01-1980 to 31-12-1985 from BirthDate column in DimCustomer table, and the birthDate show in Ascending order
+select FirstName,BirthDate from DimCustomer where BirthDate between '1980-01-01' and '1985-12-31' order by BirthDate;
+select * from DimCustomer;
