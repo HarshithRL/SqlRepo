@@ -1,5 +1,6 @@
 # SqlRepo
 SQL Assignment
+
 --Q1 (Creating Database and Tables) :
 
 Question-1 
