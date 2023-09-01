@@ -1,0 +1,74 @@
+--Q6(GroupBy function Questions)
+
+--Create 2 tables With Given Records(Employee,ProjectDetail)
+
+CREATE TABLE Employee(EmployeeID int identity(1,1) primary key,
+                      FirstName varchar(50) not null,
+                      LastName varchar(50),
+                      Salary money,
+                      Department varchar(10),
+                      Gender varchar(7)  Constraint MorF check (Gender in ('male','female')));
+
+
+CREATE TABLE ProjectDetail (ProjectDetailID int identity(1,1) primary key,
+                            Employee_ID int,
+                            ProjectName varchar(20)  Constraint FK_from_employee
+                            FOREIGN KEY (Employee_ID) REFERENCES Employee(EmployeeID));
+
+-- Insert Records into Employee
+
+INSERT INTO Employee
+VALUES ('Vikas','Ahlawat',600000.00,'IT','male'),
+       ('Nikita','Jain',530000.00,'HR','female'),
+	   ('Ashish','kumar',100000.00,'IT','male'),
+	   ('Nikhl','Sharma',480000.00,'HR','male'),
+	   ('Anish','Kadian',500000.00,'Payroll','male');
+
+-- Insert Records into  ProjectDetail
+
+INSERT INTO ProjectDetail
+VALUES (1,'Task Track'),
+       (1,'CLP'),
+       (1,'Survey Management'),
+       (2,'HR Management'),
+       (3,'Task Track'),
+       (3,'GRS'),
+       (3,'DDS'),
+       (4,'HR Management'),
+       ('GL Management');
+
+--
+
+--List employee name, project name order by firstname from "EmployeeDetail"
+--and "ProjectDetail" for those employee which have assigned project already.
+
+
+SELECT Employee.FirstName AS EmployeeName, ProjectDetail.ProjectName
+FROM Employee
+INNER JOIN ProjectDetail ON Employee.EmployeeID = ProjectDetail.Employee_ID
+ORDER BY Employee.FirstName;
+
+
+--List employee name, project name order by firstname
+--from "EmployeeDetail" and "ProjectDetail" for all employee even they have not assigned project.
+
+SELECT Employee.FirstName AS EmployeeName, ProjectDetail.ProjectName
+FROM Employee
+LEFT JOIN ProjectDetail ON Employee.EmployeeID = ProjectDetail.Employee_ID
+ORDER BY Employee.FirstName;
+
+--List all project name even they have not matching any employeeid,
+--in left table, order by firstname from "EmployeeDetail" and "ProjectDetail
+
+SELECT ProjectDetail.ProjectName ,Employee.EmployeeID ,Employee.FirstName AS EmployeeName
+FROM Employee
+RIGHT JOIN ProjectDetail ON Employee.EmployeeID = ProjectDetail.Employee_ID
+ORDER BY Employee.FirstName;
+
+--List complete record(employeename, project name)
+--from both tables([EmployeeDetail],[ProjectDetail]), if no match found in any table then show NULL
+
+SELECT Employee.FirstName AS EmployeeName, ProjectDetail.ProjectName
+FROM Employee
+full OUTER JOIN ProjectDetail ON Employee.EmployeeID = ProjectDetail.Employee_ID
+ORDER BY Employee.FirstName;

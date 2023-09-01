@@ -99,4 +99,20 @@ Question-1
 
 • List  FirstName and Birthdate, the birth date range between 01-01-1980 to 31-12-1985 from BirthDate column in DimCustomer table, and the birthDate show in Ascending order
 
+--Q6(GroupBy function Questions)
+
+• Created Two Tables According to Given Data (Employee & ProjectDetails)
+
+• Inserted Records Into the tables
+
+• Query to  Get employee name, project name order by firstname from "EmployeeDetail" and "ProjectDetail" for those employee which have assigned project already.
+
+• Query to Get employee name, project name order by firstname from "EmployeeDetail" and "ProjectDetail" for all employee even they have not assigned project.
+
+• Query to Get all project name even they have not matching any employeeid, in left table, order by firstname from "EmployeeDetail" and "ProjectDetail".
+
+• Query to Get complete record(employeename, project name) from both tables(EmployeeDetail,ProjectDetail), if no match found in any table then show NULL.
+
+
+
 
