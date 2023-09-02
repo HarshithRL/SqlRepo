@@ -113,6 +113,80 @@ Question-1
 
 • Query to Get complete record(employeename, project name) from both tables(EmployeeDetail,ProjectDetail), if no match found in any table then show NULL.
 
+--Q7 (Group By)
 
+• Created 2 table with mentioned data.
 
+• SQL query to group the DeptID column and Salary need to average salary department-wise from above table.(Output columns: DeptID, Avg.Salary)
 
+• In continuation to above applied Having condition on Average Salary > 3000 and show the result.
+
+• Applied Join on Employee and Department tables using the common column DeptID.
+
+• SQL query to display Dname, Avg. salary of Each dept. using Joins and Group by Clauses.
+
+• From AdventureworksDB2019,SQL query to display FirstName and BirthDate and birthdate should be between 01-01-1985 to 01-12-1985 from DimCustomer and DimEmployee tables using Union and Union all functions.
+
+--Q8 Part 1
+
+• Created 2 table with mentioned data.
+
+• Query to get FirstName in upper case as "First Name".
+
+• Query for combine FirstName and LastName and display it as "Name" 
+
+• Query all employee details from EmployeeDetail table whose "FirstName" contains 'k'
+
+• Query all employee details from EmployeeDetail table whose "FirstName" end with 'h'
+
+• Query all employee detail from EmployeeDetail table whose "FirstName" not start with any single character between 'a-p'
+
+• Query all employee detail from EmployeeDetail table whose "FirstName" start with 'A' and contain 5 letters.
+
+• Query all unique "Department" from EmployeeDetail table.
+
+• Get the highest "Salary"  & Lowest "Salary" from EmployeeDetail table.
+
+• Get the first name, current date, joiningdate and diff between current date and joining date in months.
+
+• Get all employee details from EmployeeDetail table whose joining year is 2013.
+
+• Get all employee details from EmployeeDetail table whose joining month is Jan(1).
+
+• Get all employee details from EmployeeDetail table whose joining date between "2013-01-01" and "2013-12-01".
+
+• Select all employee detail with First name "Vikas","Ashish", and "Nikhil".
+
+• Display first name and Gender as M/F.(if male then M, if Female then F) 
+
+• Select first name from "EmployeeDetail" table prifixed with "Hello "
+
+• Get employee details from "EmployeeDetail" table whose Salary less than 700000
+
+• Get employee details from "EmployeeDetail" table whose Salary between 500000 than 600000
+
+• Select second highest salary from "EmployeeDetail" table.
+ 
+--Q8 Part 2
+
+• Create projectDetails table with above mentioned data
+
+• Write the query to get the department and department wise total(sum) salary from "EmployeeDetail" table.
+
+• Write the query to get the department and department wise total(sum) salary, display it in descending order according to salary.
+
+• Query to get the department, total no. of departments, total(sum) salary with respect to department from "EmployeeDetail" table.
+
+• Query to get department wise average salary from "EmployeeDetail" table order by salary ascending
+
+• Query to get department wise maximum salary from "EmployeeDetail" table order by salary ascending
+
+• Query to get employee name, project name order by firstname from "EmployeeDetail" and "ProjectDetail" for those employee which have assigned project already.
+
+• Query to get employee name, project name order by firstname from "EmployeeDetail" and "ProjectDetail" for all employee even they have not assigned project.
+
+• Query to get all project name even they have not matching any employeeid, in left table, order by firstname from "EmployeeDetail" and "ProjectDetail".
+
+• Query to get complete record(employeename, project name) from both tables (EmployeeDetail,ProjectDetail), if no match found in any table then show NULL.
+
+• query to fetch EmployeeName & Project who has assign more than one project.
