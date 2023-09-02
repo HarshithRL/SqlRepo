@@ -189,4 +189,4 @@ Question-1
 
 • Query to get complete record(employeename, project name) from both tables (EmployeeDetail,ProjectDetail), if no match found in any table then show NULL.
 
-• query to fetch EmployeeName & Project who has assign more than one project.
+• Query to fetch EmployeeName & Project who has assign more than one project.
