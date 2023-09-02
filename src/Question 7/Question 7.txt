@@ -1,0 +1,58 @@
+--Q7 (GROUP BY FUNCTION)
+
+--Create a table with  mentioned data
+
+Create table Employeee(EmployeeID int identity(1001,1) primary key,
+                       Ename varchar(50),
+                       DeptID int,Salary money)
+Insert into Employeee values('john',2,4000),
+                            ('Anna',1,3500),
+                            ('James',1,2500),
+                            ('David',2,5000),
+                            ('Mark',2,3000),
+                            ('Steve',3,4500),
+                            ('Alice',3,3500);
+--Write SQL query to group the DeptID column and Salary need to average salary department-wise from above table.(Output columns: DeptID, Avg.Salary)
+
+Select DeptID , Avg(Salary) as AVGsalary
+From Employeee group by DeptID ;
+
+--In continuation to above apply Having condition on Average Salary > 3000 and show the result.
+
+Select DeptID , Avg(Salary) as AVGsalary
+From Employeee group by DeptID having avg(Salary)>3000;
+
+--Create dept. table with mentioned data
+
+Create table Department(DeptID int,
+                        Dname varchar(50),
+                        Dlocation varchar(20));
+Insert into Department values(1,'HR','Mumbai'),
+                             (2,'IT','New Delhi'),
+                             (3,'Finance','Mumbai');
+
+--Apply Join on Employee and Department tables using the common column DeptID
+
+SELECT *
+FROM Employeee
+INNER JOIN Department ON Employeee.DeptID = Department.DeptID;
+
+--SQL query to display Dname, Avg. salary of Each dept. using Joins and Group by Clauses
+
+SELECT D.Dname,D.DeptID, AVG(E.Salary) AS AvgSalary
+FROM Department D
+INNER JOIN Employeee E ON D.DeptID = E.DeptID
+GROUP BY D.Dname,D.DeptID;
+
+--Write SQL query to display FirstName and BirthDate and birthdate should be between 01-01-1985 to 01-12-1985
+--from DimCustomer and DimEmployee tables using Union and Union all functions.
+
+-- Using UNION ALL (including duplicate rows)
+
+SELECT FirstName, BirthDate
+FROM DimCustomer
+WHERE BirthDate BETWEEN '1985-01-01' AND '1985-12-31'
+UNION ALL
+SELECT FirstName, BirthDate
+FROM DimEmployee
+WHERE BirthDate BETWEEN '1985-01-01' AND '1985-12-31';
