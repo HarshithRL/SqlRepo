@@ -5,7 +5,7 @@ SQL Assignment
 
 Question-1 
 
-• Connected with SQL server database engine using SSMS
+• Connected with SQL server database engine using SSMS.
 
 • Created database as school using query and Student database without using query.
 
